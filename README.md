@@ -1,14 +1,16 @@
-# [README Template] Product Name
+# Facial Expression Recognition 
 
-> Short blurb about what your product does.
+> **CS 4641 Group 16:** Shize Sheng, Yuanhong Zhou, Chunzhen Hu, Jiasheng Cao, Xingyu Hu
 
+<!--
 [![NPM Version][npm-image]][npm-url]
 [![Build Status][travis-image]][travis-url]
 [![Downloads Stats][npm-downloads]][npm-url]
-
-One to two paragraph statement about your product and what it does.
+ -->
+ 
 
 ![](header.png)
+<!--
 
 ## Installation
 
@@ -29,16 +31,41 @@ edit autoexec.bat
 A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
+ -->
 
-## Development setup
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+## Development
+
+1. Clone this project to your computer
 
 ```sh
-make install
-npm test
+git clone https://github.com/ericsheng495/facial-expression-recognition.git
 ```
 
+2. Navigate to this project in your terminal
+```sh
+cd facial-expression-recognition
+```
+
+## Jekyll Setup (github pages)
+
+1. Navigate to docs directory (this is where we keep github pages themes)
+```sh
+cd docs
+```
+2. Run Locally (on localhost:4000)
+```sh
+bundle exec jekyll serve  
+```
+
+---
+## Additional Notes:
+- Git Branching
+- Git Commit & Push
+
+
+
+<!--
 ## Release History
 
 - 0.2.1
@@ -53,7 +80,8 @@ npm test
   - CHANGE: Rename `foo()` to `bar()`
 - 0.0.1
   - Work in progress
-
+ -->
+<!--
 ## Meta
 
 Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
@@ -61,7 +89,8 @@ Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@examp
 Distributed under the XYZ license. See `LICENSE` for more information.
 
 [https://github.com/yourname/github-link](https://github.com/dbader/)
-
+ -->
+ <!--
 ## Contributing
 
 1. Fork it (<https://github.com/yourname/yourproject/fork>)
@@ -69,6 +98,7 @@ Distributed under the XYZ license. See `LICENSE` for more information.
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
+ -->
 
 <!-- Markdown link & img dfn's -->
 
