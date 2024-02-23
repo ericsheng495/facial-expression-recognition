@@ -2,122 +2,72 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+## Introduction / Motivation
 
-[Link to another page](./another-page.html).
+Smart Home Appliances currently lack the ability to recognize and respond to users' emotional states, leading to a one-size-fits-all approach that can be unresponsive to individual needs. By integrating facial emotion recognition into smart homes elements, smart systems can adjust lighting, music, and temperature in real-time to support the recognized emotion state of the occupants, creating a more satisfying home experience [1].
 
-There should be whitespace between paragraphs.
+In this proposal, we discuss how facial expression image datasets can undergo various machine learning methods to classify human emotions for Smart Homes Appliances.
 
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+## Dataset
 
-# Header 1
+We will utilize the FER2013 dataset for Facial Expression Recognition training. The FER2013 dataset is a collection of 48x48 pixel grayscale images, containing 28,000 labeled images in the training set. Each image is labeled as one of seven emotions (happy, sad, angry, afraid, surprise, disgust, neutral).
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+![FER2013 Dataset Sample](https://miro.medium.com/v2/resize:fit:720/format:webp/1*BVp2NO-EYaiF1GDIpBs37Q.png)
 
-## Header 2
+[Dataset Link: FER2013 on Kaggle](https://www.kaggle.com/datasets/msambare/fer2013/data)
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+## Data Preprocessing
 
-### Header 3
+We plan to use **image normalization**, Python's **Scikit-image** & Scikit-learn packages, histogram of oriented gradients (HOG), and **linear averaging filter** for image preprocessing.
 
-```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-```
+- Image normalization standardizes pixel values, improving the model’s stability and performance.
+- Scikit-image uses image processing capabilities; Scikit-learn has data manipulation and implementation of algorithms.
+- HOG can capture edges and textures and distinguish facial expressions.
+- Linear averaging filters can reduce image noise and improve the accuracy of feature extraction in human expression recognition.
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+## Methods
 
-#### Header 4
+We plan to use **CNN (feature extraction)**, **Neural network (classification)**, and **Support Vector Machine (SVM)**, for facial expression machine learning.
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+From _Deep Learning Approaches for Facial Emotion Recognition: A Case Study on FER-2013_, CNN can be used for facial expression recognition as a supervised machine learning method [2]. We will perform prediction by forward propagation, calculate the loss function using the labels given in the dataset and perform weight update by backward propagation.
 
-##### Header 5
+We use neural networks to forecast and classification as _Artificial Neural Network Models for Forecasting and Decision Making_ suggests that ANN have been widely touted as solving many forecasting and decision modeling problems [3].
 
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
+SVMs classify facial expressions by analyzing images as pixel arrays, extracting key features such as facial contours and textures. They identify the optimal boundary (hyperplane) that separates different expressions, focusing on maximizing the distance between the closest points (support vectors) of each expression category for precise classification.
 
-###### Header 6
+## (Potential) Results and Discussion
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+Key metrics to assess the performance of our machine learning model are **Precision**, **Recall** and **Accuracy**.
 
-### There's a horizontal rule below this.
+1. **Precision**: the proportion of samples predicted as positive by the model that are truly positive, aims to minimize false positives.
+2. **Recall**: the proportion of truly positive samples correctly predicted by the model, focuses on minimizing false negatives.
+3. **Overall accuracy**: the ratio of all correctly predicted samples to the total number of samples, is a fundamental metric for assessing the model's effectiveness.
 
-* * *
+Project goals:
 
-### Here is an unordered list:
+1. Achieve a high overall accuracy (exceeding 85% on a held-out test dataset) in sentiment prediction
+2. Strike a balance between precision and recall, ensuring that predictions are not biased towards positive or negative sentiments.
 
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
+## Contribution
 
-### And an ordered list:
+| Member Name   | Proposal Contributions                                                         |
+| ------------- | ------------------------------------------------------------------------------ |
+| Shize Sheng   | - Introduction / Background <br> - Potential Data Set <br> - GitHub Page       |
+| Yuanhong Zhou | - Methods <br> - Reference <br> - Data preprocessing <br> - Video presentation |
+| Chunzhen Hu   | - Video slides <br> - Data preprocessing <br> - Video presentation             |
+| Jiasheng Cao  | - Results and Discussion <br> - Reference <br> - Methods                       |
+| Xingyu Hu     | - Problem Definition / Motivation <br> - Video presentation                    |
 
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
+## Gantt Chart
 
-### And a nested list:
+[https://docs.google.com/spreadsheets/d/1UAXvvqgorT2BbgdRRo9CnRNFgh6w91AE8r79ES6mEFg/edit?usp=sharing](https://docs.google.com/spreadsheets/d/1UAXvvqgorT2BbgdRRo9CnRNFgh6w91AE8r79ES6mEFg/edit?usp=sharing)
 
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
+## References
 
-### Small image
+[1] Fodor, Kristián & Balogh, Zoltán & Molnár, György. (2023). Real-time Emotion Recognition in Smart Homes. 10.1109/SACI52869.2023.10158664.
 
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
+[2] P. Giannopoulos, I. Perikos, and I. Hatzilygeroudis, "Deep learning approaches for facial emotion recognition: A case study on fer2013," _Advances in Hybridization of Intelligent Methods_, pp. 1–16, Oct. 2017. DOI: 10.1007/978-3-319-66790-4_1
 
-### Large image
+[3] T. Hill, L. Marquez, M. O'Connor, and W. Remus, "Artificial Neural Network Models for Forecasting and Decision Making," _International Journal of Forecasting_, vol. 10, no. 1, pp. 5-15, 1994. DOI: 10.1016/0169-2070(94)90045-0
 
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
-
-```
-The final element.
-```
+[4] B. Juba and H. S. Le, "Precision-Recall versus Accuracy and the Role of Large Data Sets," _AAAI_, vol. 33, no. 01, pp. 4039-
