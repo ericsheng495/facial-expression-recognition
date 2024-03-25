@@ -36,6 +36,8 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 
 ## Development
 
+### Setup  
+
 1. Clone this project to your computer
 
 ```sh
@@ -46,6 +48,48 @@ git clone https://github.com/ericsheng495/facial-expression-recognition.git
 ```sh
 cd facial-expression-recognition
 ```
+
+3. Pulling the latest update from main
+```sh
+git pull 
+```
+
+4. Creating your branch
+```sh
+git checkout -b your-branch-name
+```
+
+5. Running the model
+```sh
+
+```
+
+### Commit & Push 
+
+6. See which files you have modified
+```sh
+git status
+```
+
+7. Add your files to "staging"
+```sh
+git add .
+```
+
+8. Commit with message
+```sh
+git commit -m "your commit message"
+```
+
+9. Push your branch to main (remote)
+```sh
+git push
+```
+
+
+
+
+
 
 ## Jekyll Setup (github pages)
 
