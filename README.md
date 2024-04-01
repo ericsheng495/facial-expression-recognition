@@ -71,7 +71,13 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
         
 ### Directories
 - `/CNN/`: Contains files related to Convolutional Neural Networks, including model definitions, training scripts, and utilities for CNN operations.
-- `/setData/`: Contains datasets for the project, both in original (`/setData/original_data_set/`) and preprocessed forms (`/setData/processed_data_set`), prepared for data analysis or machine learning model consumption
+- `/setData/`: Contains datasets for the project. It includes:
+  - **Original dataset (`/setData/original_data_set/`)**: Prepared for initial data analysis. It is organized into `test` and `train` folders, each containing subfolders for different emotions such as `angry`, `disgust`, `fear`, `happy`, `neutral`, `sad`, and `surprise`.
+    - `/test/`: Contains images for testing the model, divided into categories based on emotions
+    - `/train/`: Contains images for training the model, similarly divided into emotional categories.
+  - **Preprocessed dataset (`/setData/processed_data_set/`)**: Prepared for machine learning model consumption. It simplifies dataset structure into `test` and `train` folders, each containing a `data.npy` file with preprocessed data.
+    - `/test/`: Contains a `data.npy` file with preprocessed testing data.
+    - `/train/`: Contains a `data.npy` file with preprocessed training data.
 - `/docs/`: Used for GitHub Pages hosting; includes markdown, HTML, and other resources needed to build the project's webpage.
 
 
