@@ -36,46 +36,49 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 
 ```
 .
-├── CNN
-│   ├── cnn_train.ipynb
-│   └── model
-│       └── trained_cnn_model.h5
-├── README.md
-├── requirements.txt
-├── docs
-└── setData
-    ├── original_data_set
-    │   ├── test
-    │   │   ├── angry
-    │   │   ├── disgust
-    │   │   ├── fear
-    │   │   ├── happy
-    │   │   ├── neutral
-    │   │   ├── sad
-    │   │   └── surprise
-    │   └── train
-    │       ├── angry
-    │       ├── disgust
-    │       ├── fear
-    │       ├── happy
-    │       ├── neutral
-    │       ├── sad
-    │       └── surprise
-    └── processed_data_set
-        ├── test
-        │   └── data.npy
-        └── train
+├── CNN                          # CNN related files.
+│   ├── cnn_train.ipynb          # Notebook for preprocessing, training, and evaluating the CNN model.
+│   └── model       
+│       └── trained_cnn_model.h5 
+├── README.md                   
+├── requirements.txt             # List of python packages required for the project.
+├── docs                         # GitHub Pages.
+└── setData                      # Dataset directory.
+    ├── original_data_set       
+    │   ├── test                 # Testing set
+    │   │   ├── angry
+    │   │   ├── disgust
+    │   │   ├── fear
+    │   │   ├── happy
+    │   │   ├── neutral
+    │   │   ├── sad
+    │   │   └── surprise
+    │   └── train                # Training set
+    │       ├── angry
+    │       ├── disgust
+    │       ├── fear
+    │       ├── happy
+    │       ├── neutral
+    │       ├── sad
+    │       └── surprise
+    └── processed_data_set       # Processed dataset, simplified into numpy arrays for direct use in models.
+        ├── test                
+        │   └── data.npy
+        └── train                # Processed training data in a numpy array.
             └── data.npy
+
 
 ```
         
 ### Directories
-- `/CNN/`: Contains files related to Convolutional Neural Networks, including model definitions, training scripts, and utilities for CNN operations.
+- `/CNN/`: Contains files related to Convolutional Neural Networks model training
+  - `cnn_train.ipynb`: Jupyter notebook for the CNN that performs data preprocessing, visualization, CNN training, model evaulation
+  - `model/trained_cnn_model.h5`: A saved model file that contains the weights and architecture of the trained convolutional neural network, no retraining needed for new datasets
 - `/setData/`: Contains datasets for the project. It includes:
   - **Original dataset (`/setData/original_data_set/`)**: Prepared for initial data analysis. It is organized into `test` and `train` folders, each containing subfolders for different emotions such as `angry`, `disgust`, `fear`, `happy`, `neutral`, `sad`, and `surprise`.
     - `/test/`: Contains images for testing the model, divided into categories based on emotions
     - `/train/`: Contains images for training the model, similarly divided into emotional categories.
-  - **Preprocessed dataset (`/setData/processed_data_set/`)**: Prepared for machine learning model consumption. It simplifies dataset structure into `test` and `train` folders, each containing a `data.npy` file with preprocessed data.
+  - **Preprocessed dataset (`/setData/processed_data_set/`)**: Prepared for machine learning model consumption.
     - `/test/`: Contains a `data.npy` file with preprocessed testing data.
     - `/train/`: Contains a `data.npy` file with preprocessed training data.
 - `/docs/`: Used for GitHub Pages hosting; includes markdown, HTML, and other resources needed to build the project's webpage.
