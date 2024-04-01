@@ -43,7 +43,7 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 ├── README.md                   
 ├── requirements.txt             # List of python packages required for the project.
 ├── docs                         # GitHub Pages.
-└── setData                      # Dataset directory, containing original and processed datasets.
+└── setData                      # Dataset directory.
     ├── original_data_set       
     │   ├── test                 # Testing set
     │   │   ├── angry
