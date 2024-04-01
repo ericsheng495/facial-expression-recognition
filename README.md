@@ -32,7 +32,37 @@ A few motivating and useful examples of how your product can be used. Spice this
 
 _For more examples and usage, please refer to the [Wiki][wiki]._
  -->
+## Repo Structure
 
+```
+.
+├── 4641_project
+├── CNN
+│   ├── cnn_train.ipynb
+│   └── model
+│       └── trained_cnn_model.h5
+├── README.md
+├── requirements.txt
+├── docs
+└── setData
+    ├── original_data_set
+    │   ├── test
+    │   └── train
+    └── processed_data_set
+        ├── test
+        └── train
+```
+        
+### Directories
+- `/CNN/`: Contains files related to Convolutional Neural Networks, including model definitions, training scripts, and utilities for CNN operations.
+- `/setData/`: Contains datasets for the project, both in original (`/setData/original_data_set/`) and preprocessed forms (`/setData/processed_data_set`), prepared for data analysis or machine learning model consumption
+- `/docs/`: Used for GitHub Pages hosting; includes markdown, HTML, and other resources needed to build the project's webpage.
+
+
+### Files
+- `/requirements.txt`: Specifies all Python dependencies required by the project, which can be installed via pip.
+- `/.gitignore`: Lists all files and directories that git should ignore, preventing them from being tracked or added to the repository.
+- `/README.md`: Provides an overview of the project, setup instructions, and essential information for users and contributors.
 
 ## Development
 
