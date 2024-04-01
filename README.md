@@ -78,7 +78,7 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
   - **Original dataset (`/setData/original_data_set/`)**: Prepared for initial data analysis. It is organized into `test` and `train` folders, each containing subfolders for different emotions such as `angry`, `disgust`, `fear`, `happy`, `neutral`, `sad`, and `surprise`.
     - `/test/`: Contains images for testing the model, divided into categories based on emotions
     - `/train/`: Contains images for training the model, similarly divided into emotional categories.
-  - **Preprocessed dataset (`/setData/processed_data_set/`)**: Prepared for machine learning model consumption.
+  - **Preprocessed dataset (`/setData/processed_data_set/`)**: Contains pre-processed data
     - `/test/`: Contains a `data.npy` file with preprocessed testing data.
     - `/train/`: Contains a `data.npy` file with preprocessed training data.
 - `/docs/`: Used for GitHub Pages hosting; includes markdown, HTML, and other resources needed to build the project's webpage.
