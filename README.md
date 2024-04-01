@@ -36,7 +36,7 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 
 ```
 .
-├── CNN                          # Convolutional Neural Networks (CNN) related files.
+├── CNN                          # CNN related files.
 │   ├── cnn_train.ipynb          # Notebook for preprocessing, training, and evaluating the CNN model.
 │   └── model       
 │       └── trained_cnn_model.h5 
@@ -45,7 +45,7 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 ├── docs                         # GitHub Pages.
 └── setData                      # Dataset directory, containing original and processed datasets.
     ├── original_data_set       
-    │   ├── test                 # Testing set, categorized by emotion labels.
+    │   ├── test                 # Testing set
     │   │   ├── angry
     │   │   ├── disgust
     │   │   ├── fear
@@ -53,7 +53,7 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
     │   │   ├── neutral
     │   │   ├── sad
     │   │   └── surprise
-    │   └── train                # Training set, categorized by emotion labels.
+    │   └── train                # Training set
     │       ├── angry
     │       ├── disgust
     │       ├── fear
@@ -73,7 +73,7 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 ### Directories
 - `/CNN/`: Contains files related to Convolutional Neural Networks model training
   - `cnn_train.ipynb`: Jupyter notebook for the CNN that performs data preprocessing, visualization, CNN training, model evaulation
-  - `model/trained_cnn_model.h5`: A saved model file that contains the weights and architecture of the trained convolutional neural network. This file can be loaded to make predictions on new data without retraining.
+  - `model/trained_cnn_model.h5`: A saved model file that contains the weights and architecture of the trained convolutional neural network, no retraining needed for new datasets
 - `/setData/`: Contains datasets for the project. It includes:
   - **Original dataset (`/setData/original_data_set/`)**: Prepared for initial data analysis. It is organized into `test` and `train` folders, each containing subfolders for different emotions such as `angry`, `disgust`, `fear`, `happy`, `neutral`, `sad`, and `surprise`.
     - `/test/`: Contains images for testing the model, divided into categories based on emotions
