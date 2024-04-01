@@ -71,11 +71,18 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
         
 ### Directories
 - `/CNN/`: Contains files related to Convolutional Neural Networks, including model definitions, training scripts, and utilities for CNN operations.
+  - `cnn_train.ipynb`: This Jupyter notebook is the cornerstone of the CNN component. Within this notebook, several key operations are performed:
+    - **Data Preprocessing**: The raw data is prepared for the model, including normalization, resizing, and augmentation techniques to enhance the model's learning process.
+    - **Visualization**: Before diving into training, the dataset is visualized to understand its composition and distribution, ensuring there's a balanced representation of classes.
+    - **Model Training**: Utilizes the Keras library to define and train the convolutional neural network. The training process is shown below:
+    - **Model Evaluation**: After training, the model's accuracy and loss are evaluated using the test dataset to ensure it performs well on data it hasn't seen during the training process.
+    - **Model Saving**: The final trained model is saved to disk for future use, allowing for deployment or further evaluation without needing to retrain.
+    - `model/trained_cnn_model.h5`: A saved model file that contains the weights and architecture of the trained convolutional neural network. This file can be loaded to make predictions on new data without retraining.
 - `/setData/`: Contains datasets for the project. It includes:
   - **Original dataset (`/setData/original_data_set/`)**: Prepared for initial data analysis. It is organized into `test` and `train` folders, each containing subfolders for different emotions such as `angry`, `disgust`, `fear`, `happy`, `neutral`, `sad`, and `surprise`.
     - `/test/`: Contains images for testing the model, divided into categories based on emotions
     - `/train/`: Contains images for training the model, similarly divided into emotional categories.
-  - **Preprocessed dataset (`/setData/processed_data_set/`)**: Prepared for machine learning model consumption. It simplifies dataset structure into `test` and `train` folders, each containing a `data.npy` file with preprocessed data.
+  - **Preprocessed dataset (`/setData/processed_data_set/`)**: Prepared for machine learning model consumption.
     - `/test/`: Contains a `data.npy` file with preprocessed testing data.
     - `/train/`: Contains a `data.npy` file with preprocessed training data.
 - `/docs/`: Used for GitHub Pages hosting; includes markdown, HTML, and other resources needed to build the project's webpage.
