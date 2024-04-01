@@ -36,7 +36,6 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 
 ```
 .
-├── 4641_project
 ├── CNN
 │   ├── cnn_train.ipynb
 │   └── model
@@ -47,10 +46,27 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 └── setData
     ├── original_data_set
     │   ├── test
+    │   │   ├── angry
+    │   │   ├── disgust
+    │   │   ├── fear
+    │   │   ├── happy
+    │   │   ├── neutral
+    │   │   ├── sad
+    │   │   └── surprise
     │   └── train
+    │       ├── angry
+    │       ├── disgust
+    │       ├── fear
+    │       ├── happy
+    │       ├── neutral
+    │       ├── sad
+    │       └── surprise
     └── processed_data_set
         ├── test
+        │   └── data.npy
         └── train
+            └── data.npy
+
 ```
         
 ### Directories
