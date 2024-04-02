@@ -126,13 +126,13 @@ Project goals:
 
 ## Contribution
 
-| Member Name   | Proposal Contributions                                                         |
-| ------------- | ------------------------------------------------------------------------------ |
-| Shize Sheng   | - Introduction / Background <br> - Potential Data Set <br> - GitHub Page       |
-| Yuanhong Zhou | - Methods <br> - Reference <br> - Data preprocessing <br> - Video presentation |
-| Chunzhen Hu   | - Video slides <br> - Data preprocessing <br> - Video presentation             |
-| Jiasheng Cao  | - Results and Discussion <br> - Reference <br> - Methods                       |
-| Xingyu Hu     | - Problem Definition / Motivation <br> - Video presentation                    |
+| Member Name   | Proposal Contributions                                                                                                                                                                                    |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Shize Sheng   | - Implement Training & Dataset Visualizations <br> - Implement CNN Model Evaulations <br> - Midterm Report: Visualization <br> - GitHub Repository (README) Modification <br> - Configure to Github Pages |
+| Yuanhong Zhou | - Midterm Report: Quantitative Metrics                                                                                                                                                                    |
+| Chunzhen Hu   | - Midterm Report: CNN Model Explainations <br> - Midterm Report: Next Steps                                                                                                                               |
+| Jiasheng Cao  | - Implement Data Preprocessing <br> - Implement CNN Training <br> - Midterm Report: Analysis of CNN <br> - Midterm Report: Next Steps                                                                     |
+| Xingyu Hu     | - Midterm Report: Data Preprocessing                                                                                                                                                                      |
 
 ## Gantt Chart
 
