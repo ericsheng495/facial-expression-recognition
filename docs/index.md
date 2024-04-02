@@ -16,26 +16,102 @@ We will utilize the FER2013 dataset for Facial Expression Recognition training. 
 
 [Dataset Link: FER2013 on Kaggle](https://www.kaggle.com/datasets/msambare/fer2013/data)
 
-## Data Preprocessing
+## Data Preprocessing Method Implemented
 
-We plan to use **image normalization**, Python's **Scikit-image** & Scikit-learn packages, histogram of oriented gradients (HOG), and **linear averaging filter** for image preprocessing.
+### Gray Scale Conversion
 
-- Image normalization standardizes pixel values, improving the model’s stability and performance.
-- Scikit-image uses image processing capabilities; Scikit-learn has data manipulation and implementation of algorithms.
-- HOG can capture edges and textures and distinguish facial expressions.
-- Linear averaging filters can reduce image noise and improve the accuracy of feature extraction in human expression recognition.
+For the data preprocessing pipeline, we start by converting every image of the training and testing dataset from its original format to grayscale, which simplifies the data representation and reduces the computational complexity. The grayscale images are represented as matrices.
 
-## Methods
+### Emotion Labeling
+
+The corresponding emotion label is assigned to each image based on the folder, and this relationship is stored as a list of dictionaries.
+
+### Data augmentation(training data)
+
+We also incorporated several data augmentation techniques to a portion of the training data such as random movement, rotation, flipping, and zooming. After data augmentation.
+
+### Data shuffling
+
+We shuffled the processed training dataset randomly to ensure our model is not biased on the specific order of the training data.
+
+### Data saving
+
+Finally, we saved the preprocessed training and testing datasets to the Numpy file to allow for convenient access in later pipelines.
+
+## Visualizations
+
+### Analyzing the Training & Testing Dataset
+
+From the preprocessed training and testing datasets (stored as numpy arrays), we first converted them as pandas dataframes with columns for 'emotion' labels and 'pixels’, the latter being flattened arrays representing the image data.
+
+Returning the dataset shapes
+
+- The training set has 41,463 individual data samples (testing set with 7178 samples) and 2 features (emotion, flattened pixel array of the image)
+
+  - Training Data Shape: (41463, 2)
+  - Test Data Shape: (7178, 2)
+
+- Previewing the first 5 rows of the training & testing dataframe
+- Emotion Distribution
+
+### Visualizing the Training Dataset
+
+- For visualizing the emotion distribution within the training dataset, we used the seaborn visualization library in conjunction matplotlib to output a barplot displaying each of the 7 emotions and their corresponding occurrence within the set.
+
+- Emotions were sorted in ascending order based on their occurrence, with the resulting plot showcasing a spectrum of emotions from 'disgust' (least common) to 'happy' (most common).
+
+![CNN Training Set Distribution](/docs/images/cnn_distribution.png)
+
+### Visualizing the Testing Dataset
+
+- The same visualization process was used to visualize the testing dataset. The emotion frequencies reflect a similar distribution pattern as the training dataset, where 'disgust having the least occurrence and happy having the most.
+
+![CNN Testing Set Distribution](/docs/images/cnn_test_distribution.png)
+
+## Method Implemented (CNN)
+
+### Why we used CNN
+
+CNNs are preferred for facial expression recognition due to their efficient extraction of local features through convolutional operations with shared parameters and their ability to improve model generalization by training filters. They possess parameter sharing and local connectivity properties, resulting in fewer parameters and computations, making them suitable for large-scale data processing. Additionally, CNNs utilize secondary sampling and parameter reduction via pooling layers to preserve salient features, decrease computational load, and prevent overfitting. Their translation invariance, achieved through locally connected patterns, is particularly beneficial for facial expression recognition tasks where facial features may vary in location. Furthermore, CNNs employ fully connected layers to alter feature map dimensions and generate probabilities for classification categories, facilitating image classification.
+
+### Quantitative Metrics
+
+We use accuracy and loss to show how well an ML model learns over time (or epochs). Accuracy shows us how well the model makes correct predictions during training. Loss represents the deviation of the model’s predicted and true values. To evaluate an ML model, a low loss value and a high accuracy indicate that model learning is effective.
+
+- For training and validation loss, the x-axis represents the epochs number, and the y-axis represents the loss values. Picture 1 shows how the loss value changes with the increasing of epochs.
+
+- For training and validation accuracy, the x-axis represents the epochs number, and the y-axis represents the accuracy. Picture 2 shows how accuracy changes with the increasing of epochs.
+
+Our model's training loss decreases as epochs increase and eventually approaches 0, while our validation loss decreases and then increases as epochs increase. The training accuracy of our model has been increasing with epochs to almost 100% accuracy, and the validation accuracy increases with epochs and then stabilizes to around 52%.
+
+Our model can achieve high accuracy as well as low loss for learning on the training data with the performance of the CNN algorithm, with high prediction loss and stabilized accuracy on the test data.
+
+### Analysis of the CNN Model
+
+We used a CNN model for this multi-classification task. In our model, we used 3 convolutional layers to extract features from the image and pooling layer to reduce the amount of data and speed up the training.
+
+After this, we flatten all the features. This step is to bridge the fully connected layers that come later. We used two fully connected layers for subsequent training. The fully connected layer reduces the value of the loss function by continuously adjusting the weights during training. In all of these processes, we use the Relu function as the activation function, which prevents the gradient from disappearing and improves the speed of training.
+
+Finally, we used a fully connected layer and a sigmoid function for the final classification, the number of points in this layer is equal to the number of classifications so that we can get a probabilistic output for each classification.
+
+### Next Steps
+
+We have tried various transformations such as translation rotation of images in data preprocessing, but our results did not improve well. After that we may try to increase the filter of the convolutional layer to make the image with more feature values to improve the accuracy. Or a hybrid approach to data preprocessing.
+
+After that we will implement the SVM model, a supervised learning model, which can also efficiently perform classification tasks well suited for our facial expression recognition task.
+
+We are going to try more different parameters and see which ones lead to the best training results. This includes, but is not limited to, changing the number of layers in the fully connected layer, the number of layers in the convolutional layer, the batch size, and the number of convolutional kernels. Since we perform data enhancement during data preprocessing, including translation, rotation, mirroring, and zooming, we are also going to try to adjust their parameters to get relatively better results.
+
+## Proposed Data Methods
 
 We plan to use **CNN (feature extraction)**, **Neural network (classification)**, and **Support Vector Machine (SVM)**, for facial expression machine learning.
-
 From _Deep Learning Approaches for Facial Emotion Recognition: A Case Study on FER-2013_, CNN can be used for facial expression recognition as a supervised machine learning method [2]. We will perform prediction by forward propagation, calculate the loss function using the labels given in the dataset and perform weight update by backward propagation.
 
 We use neural networks to forecast and classification as _Artificial Neural Network Models for Forecasting and Decision Making_ suggests that ANN have been widely touted as solving many forecasting and decision modeling problems [3].
 
 SVMs classify facial expressions by analyzing images as pixel arrays, extracting key features such as facial contours and textures. They identify the optimal boundary (hyperplane) that separates different expressions, focusing on maximizing the distance between the closest points (support vectors) of each expression category for precise classification.
 
-## (Potential) Results and Discussion
+## Proposed (Potential) Results and Discussion
 
 Key metrics to assess the performance of our machine learning model are **Precision**, **Recall** and **Accuracy**.
 
