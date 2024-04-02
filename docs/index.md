@@ -44,15 +44,24 @@ Finally, we saved the preprocessed training and testing datasets to the Numpy fi
 
 From the preprocessed training and testing datasets (stored as numpy arrays), we first converted them as pandas dataframes with columns for 'emotion' labels and 'pixels’, the latter being flattened arrays representing the image data.
 
-Returning the dataset shapes
+#### Returning the dataset shapes
 
 - The training set has 41,463 individual data samples (testing set with 7178 samples) and 2 features (emotion, flattened pixel array of the image)
 
   - Training Data Shape: (41463, 2)
   - Test Data Shape: (7178, 2)
 
-- Previewing the first 5 rows of the training & testing dataframe
-- Emotion Distribution
+#### Previewing the first 5 rows of the train set
+
+![First 5 Train](https://i.postimg.cc/QxSCVrB8/first5-train.png)
+
+#### Previewing the first 5 rows of the test set
+
+![First 5 Test](https://i.postimg.cc/fRLL9gXx/first5-test.png)
+
+#### Emotion Distribution
+
+![Emotion Distribution](https://i.postimg.cc/jSpB6LmR/distribution.png)
 
 ### Visualizing the Training Dataset
 
@@ -60,31 +69,27 @@ Returning the dataset shapes
 
 - Emotions were sorted in ascending order based on their occurrence, with the resulting plot showcasing a spectrum of emotions from 'disgust' (least common) to 'happy' (most common).
 
-![CNN Training Set Distribution](/docs/images/cnn_distribution.png)
+![CNN Training Set Distribution](https://i.postimg.cc/Y0JXzFVk/cnn-distribution.png)
 
 ### Visualizing the Testing Dataset
 
-- The same visualization process was used to visualize the testing dataset. The emotion frequencies reflect a similar distribution pattern as the training dataset, where 'disgust having the least occurrence and happy having the most.
+- The same visualization process was used to visualize the testing dataset. The emotion frequencies reflect a similar distribution pattern as the training dataset, where 'disgust' has the least occurrence and 'happy' having the most.
 
-![CNN Testing Set Distribution](/docs/images/cnn_test_distribution.png)
+![CNN Testing Set Distribution](https://i.postimg.cc/VN1VhjNk/cnn-test-distribution.png)
 
 ## Method Implemented (CNN)
 
 ### Why we used CNN
 
-CNNs are preferred for facial expression recognition due to their efficient extraction of local features through convolutional operations with shared parameters and their ability to improve model generalization by training filters. They possess parameter sharing and local connectivity properties, resulting in fewer parameters and computations, making them suitable for large-scale data processing. Additionally, CNNs utilize secondary sampling and parameter reduction via pooling layers to preserve salient features, decrease computational load, and prevent overfitting. Their translation invariance, achieved through locally connected patterns, is particularly beneficial for facial expression recognition tasks where facial features may vary in location. Furthermore, CNNs employ fully connected layers to alter feature map dimensions and generate probabilities for classification categories, facilitating image classification.
+CNN (convolutional neural network) is used for facial expression recognition for its efficient extraction of local features through convolutional operations with shared parameters and the ability to improve model generalization by training filters.
 
-### Quantitative Metrics
+CNN utilizes **parameter sharing** (instead of learning separate weights for each pixel in the image, the same set of weights is reused for various positions of the input) and **local connectivity properties** ( focusing on extracting local features first before assembling into higher-order features), resulting in fewer parameters and computations, making it efficient for large-scale data processing like image datasets.
 
-We use accuracy and loss to show how well an ML model learns over time (or epochs). Accuracy shows us how well the model makes correct predictions during training. Loss represents the deviation of the model’s predicted and true values. To evaluate an ML model, a low loss value and a high accuracy indicate that model learning is effective.
+Additionally, CNNs utilize **secondary sampling** and parameter reduction via **pooling layers** to preserve most significant features, decrease computational load, and prevent overfitting.
 
-- For training and validation loss, the x-axis represents the epochs number, and the y-axis represents the loss values. Picture 1 shows how the loss value changes with the increasing of epochs.
+CNN's **translation invariance**, achieved through locally connected patterns, is particularly beneficial for facial expression recognition tasks where facial features may vary in location.
 
-- For training and validation accuracy, the x-axis represents the epochs number, and the y-axis represents the accuracy. Picture 2 shows how accuracy changes with the increasing of epochs.
-
-Our model's training loss decreases as epochs increase and eventually approaches 0, while our validation loss decreases and then increases as epochs increase. The training accuracy of our model has been increasing with epochs to almost 100% accuracy, and the validation accuracy increases with epochs and then stabilizes to around 52%.
-
-Our model can achieve high accuracy as well as low loss for learning on the training data with the performance of the CNN algorithm, with high prediction loss and stabilized accuracy on the test data.
+CNNs also employ **fully connected layers** to alter feature map dimensions and generate probabilities for classification categories, facilitating image classification.
 
 ### Analysis of the CNN Model
 
@@ -94,13 +99,37 @@ After this, we flatten all the features. This step is to bridge the fully connec
 
 Finally, we used a fully connected layer and a sigmoid function for the final classification, the number of points in this layer is equal to the number of classifications so that we can get a probabilistic output for each classification.
 
+### Quantitative Metrics
+
+We use accuracy and loss to evaluate the performance of the model’s learning over time (or epochs). Accuracy measures how well the model makes correct predictions during training and loss measures the deviation of the model’s predicted and true values. To evaluate an ML model, a low loss value and a high accuracy indicate that model learning is effective.
+
+- For training and validation loss, the x-axis represents the epochs number, and the y-axis represents the loss values. Picture 1 shows how the loss value changes with the increasing of epochs.
+
+![CNN Accuracy](https://i.postimg.cc/k4CqfV0Q/loss.png)
+
+- For training and validation accuracy, the x-axis represents the epochs number, and the y-axis represents the accuracy. Picture 2 shows how accuracy changes with the increasing of epochs.
+
+![CNN Accuracy](https://i.postimg.cc/JzjNSvyb/accuracy.png)
+
+Analyzing these two figures, the accuracy of the training set increases as epochs increase and eventually asymptotes to 100% (caps at ~98%) and the loss function of the training set asymptotes to 0 over epochs, both showing trends of great effectiveness in performance.
+
+As for the testing set (validation), although the accuracy function is still positively correlated with epochs overtime, it eventually plateaus to around 52%, indicating that our model’s poor performance on the testing set as opposed to the training set. Similarly, the loss function for the validation set initially decreases, indicating learning is occurring, but then begins to increase, signaling a degradation in model performance on the validation set.
+
+The increase in validation loss may be caused by **overfitting**, where our CNN model was too tuned to the training dataset at the expense of being able to generalize unseen data presented in the testing dataset.
+
 ### Next Steps
 
-We have tried various transformations such as translation rotation of images in data preprocessing, but our results did not improve well. After that we may try to increase the filter of the convolutional layer to make the image with more feature values to improve the accuracy. Or a hybrid approach to data preprocessing.
+During our implementation, we’ve tried various data preprocessing techniques (zooming, flipping, randomizing the dataset) to improve the test data accuracy, but did not see significant improvement. At the end, we figured that the poor performance on the test dataset may be due to overfitting our CNN model with the training dataset.
 
-After that we will implement the SVM model, a supervised learning model, which can also efficiently perform classification tasks well suited for our facial expression recognition task.
+In the future, we can further improve our CNN model by:
 
-We are going to try more different parameters and see which ones lead to the best training results. This includes, but is not limited to, changing the number of layers in the fully connected layer, the number of layers in the convolutional layer, the batch size, and the number of convolutional kernels. Since we perform data enhancement during data preprocessing, including translation, rotation, mirroring, and zooming, we are also going to try to adjust their parameters to get relatively better results.
+- Revising the model's complexity or introducing regularization techniques to better balance the model's fit to the training data and maintain its performance on new, unseen data.
+- Increasing the filter of the convolutional layer to make the image with more feature values to improve accuracy.
+- Manipulating the number of layers in the fully connected layer, the number of layers in the convolutional layer, the batch size, and the number of convolutional kernels.
+
+Since we perform data enhancement during data preprocessing, including translation, rotation, mirroring, and zooming, we are also going to try to adjust their parameters to get relatively better results.
+
+For the next step, we will implement the SVM model, a supervised learning model, which can also efficiently perform classification tasks well suited for our facial expression recognition task. We will also try out more data preprocessing techniques for our SVM model.
 
 ## Proposed Data Methods
 
