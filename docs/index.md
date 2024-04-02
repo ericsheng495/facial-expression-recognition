@@ -20,19 +20,27 @@ We will utilize the FER2013 dataset for Facial Expression Recognition training. 
 
 ### Gray Scale Conversion
 
-For the data preprocessing pipeline, we start by converting every image of the training and testing dataset from its original format to grayscale, which simplifies the data representation and reduces the computational complexity. The grayscale images are represented as matrices.
+For the data preprocessing pipeline, we start by converting every image of training and testing dataset from its original format to grayscale. Grayscale conversion simplifies the data representation by reducing the all colors to a single intensity channel, where each pixel value represents the brightness of the pixel. This would reduce the computational complexity. The grayscale images are represented as matrices.
 
 ### Emotion Labeling
 
-The corresponding emotion label is assigned to each image based on the folder, and this relationship is stored as a list of dictionaries.
+The corresponding emotion label is assigned to each image based on the name of the folder it’s in, and this relationship is stored as a list of dictionaries.
 
 ### Data augmentation(training data)
 
-We also incorporated several data augmentation techniques to a portion of the training data such as random movement, rotation, flipping, and zooming. After data augmentation.
+We also incorporated several data augmentation techniques to a portion of the training data.
+
+- Random Movement: We randomly shift the image matrix by a small offset in both the x and y directions using the np.roll() function. This simulates minor translations of the facial expressions.
+
+- Rotation: We randomly rotate the image matrix by a small angle using the ndimage.rotate() function from the SciPy library. This helps the model learn rotational invariance.
+
+- Flipping: We randomly flip the image matrix horizontally using the np.flip() function. This augmentation technique helps the model handle mirrored facial expressions.
+
+- Zooming: We randomly scale the image matrix by a small factor using the cv2.resize() function from the OpenCV library. This simulates varying distances or scales of the facial expressions.
 
 ### Data shuffling
 
-We shuffled the processed training dataset randomly to ensure our model is not biased on the specific order of the training data.
+We shuffled the processed training dataset using np.random.shuffle() randomly to ensure our model is not biased on the specific order of the training data. Shuffling the data helps the model generalize better and reduces the risk of the model overfitting to a particular sequence of data.
 
 ### Data saving
 
