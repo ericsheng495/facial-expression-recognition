@@ -16,7 +16,7 @@ We will utilize the FER2013 dataset for Facial Expression Recognition training. 
 
 [Dataset Link: FER2013 on Kaggle](https://www.kaggle.com/datasets/msambare/fer2013/data)
 
-## Data Preprocessing Method Implemented
+## [Data Preprocessing](https://github.com/ericsheng495/facial-expression-recognition/blob/main/CNN/cnn_train.ipynb)
 
 ### Gray Scale Conversion
 
@@ -38,7 +38,7 @@ We shuffled the processed training dataset randomly to ensure our model is not b
 
 Finally, we saved the preprocessed training and testing datasets to the Numpy file to allow for convenient access in later pipelines.
 
-## Visualizations
+## [Visualizations](https://github.com/ericsheng495/facial-expression-recognition/blob/main/CNN/cnn_train.ipynb)
 
 ### Analyzing the Training & Testing Dataset
 
@@ -77,7 +77,7 @@ From the preprocessed training and testing datasets (stored as numpy arrays), we
 
 ![CNN Testing Set Distribution](https://i.postimg.cc/VN1VhjNk/cnn-test-distribution.png)
 
-## Method Implemented (CNN)
+## [Method Implemented (CNN)](https://github.com/ericsheng495/facial-expression-recognition/blob/main/CNN/cnn_train.ipynb)
 
 ### Why we used CNN
 
