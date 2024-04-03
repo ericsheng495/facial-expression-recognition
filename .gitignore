@@ -1,0 +1,39 @@
+# Ignore VSCode settings and workspace files
+.vscode/
+.vscode/*.json
+.vscode/*.code-workspace
+
+# Ignore PyCharm settings and project files
+.idea/
+*.iml
+*.ipr
+*.iws
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/*.xml
+.idea/modules.xml
+.idea/*.iml
+.idea/misc.xml
+.idea/vcs.xml
+.idea/jsLibraryMappings.xml
+.idea/dictionaries/
+.idea/inspectionProfiles/
+.idea/encodings.xml
+.idea/gradle.xml
+.idea/assetWizardSettings.xml
+.idea/libraries/
+.idea/caches/
+
+# Ignore Python virtual environments
+venv/
+__pycache__/
+*.pyc
+
+# Ignore environment-specific files
+.env
+
+# Ignore compiled Python files
+*.pyc
+
+# Ignore macOS system files
+.DS_Store
