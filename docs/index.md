@@ -244,13 +244,13 @@ Project goals:
 
 ## Contribution
 
-| Member Name   | Proposal Contributions                                                                                                                                                                                    |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Shize Sheng   | - Implement Training & Dataset Visualizations <br> - Implement CNN Model Evaulations <br> - Midterm Report: Visualization <br> - GitHub Repository (README) Modification <br> - Configure to Github Pages |
-| Yuanhong Zhou | - Midterm Report: Quantitative Metrics                                                                                                                                                                    |
-| Chunzhen Hu   | - Midterm Report: CNN Model Explainations <br> - Midterm Report: Next Steps                                                                                                                               |
-| Jiasheng Cao  | - Implement Data Preprocessing <br> - Implement CNN Training <br> - Midterm Report: Analysis of CNN <br> - Midterm Report: Next Steps                                                                     |
-| Xingyu Hu     | - Midterm Report: Data Preprocessing                                                                                                                                                                      |
+| Member Name   | Final Report Contributions                                                                                                                                                                                                       |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Shize Sheng   | - Implement Random Forest model <br> - Implement Random Forest Evaulations <br> - Final Report: Analysis & Quantitative Metrics of Random Forest <br> - GitHub Repository (README) Modification <br> - Configure to Github Pages |
+| Yuanhong Zhou | - Final Report: Quantitative Metrics of Naive Bayes <br> - Final Video Presentation                                                                                                                                              |
+| Chunzhen Hu   | - Final Report: Analysis of Naive Bayes, Comparison of 3+ Algorithms/Models, Next Steps                                                                                                                                          |
+| Jiasheng Cao  | - Implement Naive Bayes Training <br> - Implement Naive Bayes Evaulations <br>- Final Report: Why we use of Naive Bayes                                                                                                          |
+| Xingyu Hu     | - Final Report: Final Video Presentation                                                                                                                                                                                         |
 
 ## Gantt Chart
 
