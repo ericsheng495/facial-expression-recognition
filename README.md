@@ -83,6 +83,8 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 - `/CNN/`: Contains files related to Convolutional Neural Networks model training
   - `cnn_train.ipynb`: Jupyter notebook for the CNN that performs data preprocessing, visualization, CNN training, model evaulation
   - `model/trained_cnn_model.h5`: A saved model file that contains the weights and architecture of the trained convolutional neural network, no retraining needed for new datasets
+- `/Random Forests/`: Contains files related to Random Forest model training
+- `/Naive Bayes/`: Contains files related to Naive Bayes model training
 - `/setData/`: Contains datasets for the project. It includes:
   - **Original dataset (`/setData/original_data_set/`)**: Prepared for initial data analysis. It is organized into `test` and `train` folders, each containing subfolders for different emotions such as `angry`, `disgust`, `fear`, `happy`, `neutral`, `sad`, and `surprise`.
     - `/test/`: Contains images for testing the model, divided into categories based on emotions
