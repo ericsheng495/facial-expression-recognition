@@ -41,12 +41,12 @@ _For more examples and usage, please refer to the [Wiki][wiki]._
 │   └── model       
 │       └── trained_cnn_model.h5
 │ 
-├── Random Forests              # Random Forest related files.
+├── Random Forests               # Random Forest related files.
 │   ├── model
 │   │   └── trained_cnn_model.h5
 │   └── rf_train.ipynb
 │ 
-├── Naive_Bayes                # Naive Bayes related files.
+├── Naive_Bayes                 # Naive Bayes related files.
 │   └── naive_bayes_train.ipynb
 │ 
 ├── README.md                   
