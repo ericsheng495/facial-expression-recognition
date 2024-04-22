@@ -139,25 +139,86 @@ Since we perform data enhancement during data preprocessing, including translati
 
 For the next step, we will implement the SVM model, a supervised learning model, which can also efficiently perform classification tasks well suited for our facial expression recognition task. We will also try out more data preprocessing techniques for our SVM model.
 
-
 ## [Method Implemented (Random Forest)](https://github.com/ericsheng495/facial-expression-recognition/blob/main/CNN/cnn_train.ipynb)
 
 ### Why we used Random Forest
 
+The Random Forest model is a versatile training algorithm used to target classification problems through ensemble learning (creating and merging the results of multiple decision trees in parallel to produce an accurate and stable prediction).
+
+Random Forests can also effectively handle non-linear data in our large and complex expression image dataset as the relationship between pixel intensities and facial expression may not be linear.
+
+Random Forests also utilizes feature importance ranking (how much uncertainty in the classification can be reduced by that feature) to evaluate the significance of different facial features (edges, contours, intensity) in the classification process. This makes Random Forests Model effective in performance on unseen data and help guide feature selection (focus on most relevant features) in our image dataset.
+
 ### Analysis of the Random Forest Model
+
+The Random Forest model is defined by the number of decision trees it contains, which are hyper parameters that affect the model’s performance.
+
+In our model, we increase the sequence of defined tree counts (from 10 to 100) in each iteration to determine the optimal complexity of the Random Forest to finetune the accuracy and avoid overfitting. For each defined number of trees, a Random Forest model is instantiated with OpenCV’s machine learning library.
+
+The training process involves creating a series of decision trees, each developed using different subsets of the training data through bootstrapping. During the tree-building phase, a random selection of features is considered at each splitting node, meaning that each tree has a unique capture of the pattern in facial expression data.
+
+Finally, we compare the trained RF model with the validation dataset and compute the accuracy for that iteration of treescount. After looping over all the tree counts (100) the iterative training process is complete.
 
 ### Quantitative Metrics
 
+![Random Forest Accuracy](https://i.postimg.cc/wvzp2yF6/rf-accuracypng.png)
+
+The visualization of the Random Forest model’s accuracy shows a trend of increasing accuracy with the number of trees. The accuracy values start from 0.35 with 10 trees and gradually increase, plateauing around 0.45 with 100 trees. This trend suggests that adding more trees initially improves model accuracy but eventually reaches a point of diminishing returns, indicating that adding more trees beyond a certain point does not significantly benefit the model's performance.
+
+![Random Forest Confusion Matrix](https://i.postimg.cc/7YfpgnD3/rf-cm.png)
+
+The confusion matrix for the Random Forest with 100 trees (most optimal model) reveals the model’s performance across different expression classes and comparing the actual labels with the labels predicted by the model. The main diagonal shows the number of correct predictions for each label, and we want those numbers to be high relative to the off-diagonal numbers (which are misclassification).
+
+From the matrix, we see that ‘happy’ is the highest occurred prediction count, with 1389 correct predictions, indicated by the darkest blue square. On the other hand, our model has high misclassification of ‘angry’ and 'fear' emotions. The model has predicted 'fear' 348 times when the true label was 'angry'. Similarly, 'sad' has been predicted 452 times when the true label was 'fear'.
 
 ## [Method Implemented (Naive Bayes)](https://github.com/ericsheng495/facial-expression-recognition/blob/main/CNN/cnn_train.ipynb)
 
 ### Why we used Naive Bayes
 
+Naive Bayes is one of the simplest classification models. Due to its computational efficiency, it is very popular in large datasets. Because it involves basic arithmetic operations, it is computationally inexpensive and fast to train and predict.
+
+Gaussian Simple Bayes is suitable for continuous data (image is a kind of continuous data), because it assumes that the data follows a Gaussian distribution.
+
+The simplicity of Naive Bayes model makes it highly interpretable and facilitates our understanding of how the model works.
+
 ### Analysis of the Naive Bayes Model
+
+Naive Bayes is a probabilistic algorithm based on Bayes' theorem, which we use for our facial expression recognition task.
+
+In the Naive Bayes Model, firstly, we convert image data to one-dimensional feature vectors and split them into training and testing sets using an 80-20 ratio.
+
+We standardize the feature vectors using standardscaler to ensure that all features have a mean of 0 and a standard deviation of 1. We create a simple Gaussian Naive Bayes model, then the model is trained on the training data using the fit method which calculates the mean and standard deviation of each feature for each class.
+
+We use the trained model to predict labels for the test data. Then we calculate the accuracy by comparing the predicted labels with the true labels. Additionally, we generate a classification report, providing metrics such as precision, recall, and F1-score for each class.
+
+Finally, we create a visual representation of the confusion matrix, allowing for a detailed analysis of the model's performance.
 
 ### Quantitative Metrics
 
+![Naive Bayes Confusion Matrix](https://i.postimg.cc/fWGxKY94/nb-cm.png)
+
+The confusion matrix of Naive Bayes shows the model’s performance via different types of expressions. This metric also compares the label predicted by the model with the actual label. The x-axis represents different types of predicted labels, and the y-axis represents different types of true labels. The main diagonal represents the number of predicted and true labels is the same.
+
+According to our Naive Bayes metric, we can see the darkest blue block is 642 which represents “surprise” as the most predicted label by the model. However this region represents the predicted labels for "surprise" versus the true labels for "happy", which indicates that most of the true labels for "happy" are predicted to be "surprise".
+
+## Model Comparison
+
+In the task of Facial Expression Recognition, three different approaches—Convolutional Neural Networks (CNN), Random Forest Trees, and Naive Bayes—provide varying trade-offs, strengths, and limitations.
+
+For CNN, its biggest advantage is the ability to autonomously learn features directly from the original data, and we don't need to extract features manually. This makes it well-suited for facial expression recognition tasks. And it has great flexibility to accomplish specific tasks according to different needs.
+The Random Forest model creates and merges the results of multiple decision trees to produce accurate and stable predictions, which reduces the problem of overfitting. Nevertheless, compared to CNNs, random forests may have difficulty capturing complex spatial relationships or complex feature representations.
+
+The biggest advantage of the Naive Bayes model is its simplicity and computational efficiency, making it well-suited for small to medium-sized datasets. However, the Naive Bayes model operates under the assumption of feature independence, so it may perform poorly relative to CNNs and random forests in facial expression recognition tasks with highly correlated features.
+
+According to our testing results obtained by all three trained models in our dataset show that CNN has the highest accuracy score and the Naive Bayes model has the lowest accuracy score. The CNN model has the highest accuracy of 52%, but there may be an increase in validation loss due to overfitting. The Naive Bayes model performs poorly on our dataset with low accuracy, probably due to too many highly correlated features in facial expressions. The Random Forest model can achieve an average accuracy score that's not too bad. The accuracy of the Random Forest model shows a tendency to increase with the number of trees, but eventually reaches a point of diminishing returns, which indicates that increasing the number of trees beyond a certain point does not significantly improve the performance of the model.
+
 ### Next Steps
+
+Based on our test results, we know that CNN performs best on our dataset, so we hope to adjust and optimize the CNN architecture afterward to improve performance.
+
+In addition, we also want to improve the performance of Random Forest and Naive Bayes models. We may perform preprocessing of features to enhance the ability of Random Forest and Naive Bayes models to recognize features to improve the performance.
+
+We can also try to address the limitations between different models by combining different approaches or using hybrid models to improve performance.
 
 ## Proposed Data Methods
 
