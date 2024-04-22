@@ -139,6 +139,26 @@ Since we perform data enhancement during data preprocessing, including translati
 
 For the next step, we will implement the SVM model, a supervised learning model, which can also efficiently perform classification tasks well suited for our facial expression recognition task. We will also try out more data preprocessing techniques for our SVM model.
 
+
+## [Method Implemented (Random Forest)](https://github.com/ericsheng495/facial-expression-recognition/blob/main/CNN/cnn_train.ipynb)
+
+### Why we used Random Forest
+
+### Analysis of the Random Forest Model
+
+### Quantitative Metrics
+
+
+## [Method Implemented (Naive Bayes)](https://github.com/ericsheng495/facial-expression-recognition/blob/main/CNN/cnn_train.ipynb)
+
+### Why we used Naive Bayes
+
+### Analysis of the Naive Bayes Model
+
+### Quantitative Metrics
+
+### Next Steps
+
 ## Proposed Data Methods
 
 We plan to use **CNN (feature extraction)**, **Neural network (classification)**, and **Support Vector Machine (SVM)**, for facial expression machine learning.
