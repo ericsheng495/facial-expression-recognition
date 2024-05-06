@@ -1,6 +1,6 @@
 # Facial Emotion Recognition for Smart Homes Appliances
 
-> **CS 4641 Group 16:** Shize Sheng, Yuanhong Zhou, Chunzhen Hu, Jiasheng Cao, Xingyu Hu
+> Shize Sheng, Yuanhong Zhou, Chunzhen Hu, Jiasheng Cao, Xingyu Hu
 
 <!--
 [![NPM Version][npm-image]][npm-url]
